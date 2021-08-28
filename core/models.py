@@ -5,7 +5,7 @@ from django.utils import timezone
 
 class TipoDeProfissional(models.Model):
     #Dados do tipo de profissional
-    #id = models.BigAutoField(primary_key=True)
+    id = models.BigAutoField(primary_key=True)
     descricao = models.CharField(max_length=50)
     situacao = models.BooleanField(default=True)
     updatedAt = models.DateTimeField(auto_now=True)
@@ -24,7 +24,7 @@ class TipoDeProfissional(models.Model):
 
 class Profissional(models.Model):
     #Dados do profissional
-    #id = models.BigAutoField(primary_key=True)
+    id = models.BigAutoField(primary_key=True)
     nome = models.CharField(max_length=100)
     telefone = models.CharField(max_length=20)
     email = models.EmailField()
