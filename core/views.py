@@ -15,6 +15,6 @@ def lista_profissional(request):
 
 
 def lista_tipo_de_profissional(request):
-    tipo_de_profissionais = TipoDeProfissional.objects.all()
+    tipoDeProfissionais = TipoDeProfissional.objects.all()
     return render(request, 'core/lista_tipo_de_profissional.html', {
-        'tipo_de_profissionais': tipo_de_profissionais})
+        'tipoDeProfissionais': tipoDeProfissionais})
