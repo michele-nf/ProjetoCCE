@@ -3,7 +3,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Profissional, TipoDeProfissional
 
-from .forms import ProfissionalForm
+from .forms import ProfissionalForm, TipoDeProfissionalForm
 
 
 def home(request):
@@ -27,8 +27,13 @@ def profissional_novo(request):
 
 def lista_tipo_de_profissional(request):
     tipoDeProfissionais = TipoDeProfissional.objects.all()
-    return render(request, 'core/lista_tipo_de_profissional.html', {
-        'tipoDeProfissionais': tipoDeProfissionais})
+    form = TipoDeProfissionalForm()
+    data = {'tipoDeProfissionais': tipoDeProfissionais, 'form': form}
+    return render(request, 'core/lista_tipo_de_profissional.html', data)
 
 
-
+def tipo_de_profissional_novo(request):
+    form =TipoDeProfissionalForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    return redirect('core_lista_tipo_de_profissional')
