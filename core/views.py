@@ -25,6 +25,21 @@ def profissional_novo(request):
     return redirect('core_lista_profissional')
 
 
+def profissional_update(request, id):
+    data = {}
+    profissional = Profissional.objects.get(id=id)
+    form = ProfissionalForm(request.POST or None, instance=profissional)
+    data['profissional'] = profissional
+    data['form'] = form
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('core_lista_profissional')
+    else: 
+        return render(request, 'core/profissional_update.html', data)    
+
+
 def lista_tipo_de_profissional(request):
     tipoDeProfissionais = TipoDeProfissional.objects.all()
     form = TipoDeProfissionalForm()

@@ -2,7 +2,10 @@
 
 <ul>
 {% for profissional in profissionais %}
-    <li>{{ profissional.nome }}</li>
+    <li>
+        <a href="{% url 'core_profissional_update' profissional.id %}">
+            {{ profissional.nome }}</a>
+    </li>
 {% endfor %}
 </ul>
 
