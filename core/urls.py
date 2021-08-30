@@ -5,7 +5,8 @@ from .views import (
     lista_tipo_de_profissional,
     profissional_novo,
     tipo_de_profissional_novo,
-    profissional_update
+    profissional_update,
+    tipo_de_profissional_update
 )
 
 
@@ -26,6 +27,8 @@ urlpatterns = [
         name='core_lista_tipo_de_profissional'),
     #Tipo de profissional - Novo
     #core/tipo_de_profissioal-novo
-    path(r'tipo_de_profissional-novo/', tipo_de_profissional_novo, name='core_tipo_de_profissional_novo')
-
+    path(r'tipo_de_profissional-novo/', tipo_de_profissional_novo, name='core_tipo_de_profissional_novo'),
+    #Tipo de Profissional - Update
+    #core/tipo_de_profissional-update
+    path(r'tipo_de_profissional-update/(?P<id>\d+)/$', tipo_de_profissional_update, name='core_tipo_de_profissional_update'),
 ]

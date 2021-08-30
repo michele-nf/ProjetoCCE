@@ -2,7 +2,9 @@
 
 <ul>
 {% for tipoDeProfissional in tipoDeProfissionais %}
-    <li>{{ tipoDeProfissional.descricao }}</li>
+    <li>
+        <a href="{% url 'core_tipo_de_profissional_update' tipoDeProfissional.id %}">{{ tipoDeProfissional.descricao }}</a>
+    </li>
 {% endfor %}
 </ul>
 

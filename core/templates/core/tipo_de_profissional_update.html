@@ -1,0 +1,10 @@
+<h2>Tipo de Profissional - Editar</h2>
+
+
+<form action="{% url 'core_tipo_de_profissional_update' tipoDeProfissional.id %}" method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Cadastrar</button>
+</form>
