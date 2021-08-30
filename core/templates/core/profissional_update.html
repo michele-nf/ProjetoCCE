@@ -1,4 +1,4 @@
-<h2>Profissional - Editar</h2>
+<h2>Editar Profissional: {{ profissional }}</h2>
 
 
 <form action="{% url 'core_profissional_update' profissional.id %}" method="POST">
@@ -6,7 +6,7 @@
 
     {{ form.as_p }}
 
-    <button type="submit">Cadastrar</button>
+    <button type="submit">Salvar</button>
 </form>
 
 
