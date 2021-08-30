@@ -37,7 +37,16 @@ def profissional_update(request, id):
             form.save()
             return redirect('core_lista_profissional')
     else: 
-        return render(request, 'core/profissional_update.html', data)    
+        return render(request, 'core/profissional_update.html', data) 
+
+
+def profissional_delete(request, id):
+    profissional = Profissional.objects.get(id=id)
+    if request.method == 'POST':
+        profissional.delete()
+        return redirect('core_lista_profissional')
+    else:
+        return render(request, 'core/profissional_delete.html', {'profissional': profissional})   
 
 
 def lista_tipo_de_profissional(request):
@@ -67,3 +76,13 @@ def tipo_de_profissional_update(request, id):
             return redirect('core_lista_tipo_de_profissional')
     else: 
         return render(request, 'core/tipo_de_profissional_update.html', data)
+
+
+def tipo_de_profissional_delete(request, id):
+    tipoDeProfissional = TipoDeProfissional.objects.get(id=id)
+    if request.method == 'POST':
+        tipoDeProfissional.delete()
+        return redirect('core_lista_tipo_de_profissional')
+    else:
+        return render(request, 'core/tipo_de_profissional_delete.html', 
+            {'tipoDeProfissional': tipoDeProfissional})

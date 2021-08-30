@@ -1,0 +1,7 @@
+<h2>Tem certeza que quer deletar {{ profissional }}?</h2>
+
+
+<form action="{% url 'core_profissional_delete' profissional.id %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Deletar</button>
+</form>

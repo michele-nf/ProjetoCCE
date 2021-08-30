@@ -6,7 +6,9 @@ from .views import (
     profissional_novo,
     tipo_de_profissional_novo,
     profissional_update,
-    tipo_de_profissional_update
+    tipo_de_profissional_update,
+    profissional_delete,
+    tipo_de_profissional_delete
 )
 
 
@@ -20,15 +22,27 @@ urlpatterns = [
     path(r'profissional-novo/', profissional_novo, name='core_profissional_novo'),
     #Profissional - Update
     #core/profissional-update
-    path(r'^profissional-update/(?P<id>\d+)/$', profissional_update, name='core_profissional_update'),
+    path(r'^profissional-update/(?P<id>\d+)/$', profissional_update, 
+        name='core_profissional_update'),
+    #Profissional - Deletar
+    #core/profissional-delete
+    path(r'^profissional-delete/(?P<id>\d+)/$', profissional_delete, 
+        name='core_profissional_delete'),
+    
     #Tipo de profissional - Lista
     #core/tipo_de_profissional
     path(r'tipo_de_profissional/', lista_tipo_de_profissional, 
         name='core_lista_tipo_de_profissional'),
     #Tipo de profissional - Novo
     #core/tipo_de_profissioal-novo
-    path(r'tipo_de_profissional-novo/', tipo_de_profissional_novo, name='core_tipo_de_profissional_novo'),
+    path(r'tipo_de_profissional-novo/', tipo_de_profissional_novo, 
+        name='core_tipo_de_profissional_novo'),
     #Tipo de Profissional - Update
     #core/tipo_de_profissional-update
-    path(r'^tipo_de_profissional-update/(?P<id>\d+)/$', tipo_de_profissional_update, name='core_tipo_de_profissional_update'),
+    path(r'^tipo_de_profissional-update/(?P<id>\d+)/$', tipo_de_profissional_update, 
+        name='core_tipo_de_profissional_update'),
+    #Tipo de Profissional - Deletar
+    #core/tipo_de_profissional-delete
+    path(r'^tipo_de_profissional-delete/(?P<id>\d+)/$', tipo_de_profissional_delete,
+        name='core_tipo_de_profissional_delete'),
 ]
