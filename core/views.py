@@ -7,8 +7,7 @@ from .forms import ProfissionalForm, TipoDeProfissionalForm
 
 
 def home(request):
-    context = {'mensagem': 'Ola mundo'}
-    return render(request, 'core/index.html', context)
+    return render(request, 'core/index.html')
 
 
 def lista_profissional(request):
