@@ -15,6 +15,39 @@
     </div>
     <div class="col-sm-6">
         <h2>Lista Profissionais</h2>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>                   
+                    <th scope="col">Nome</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Tipo de Profissional</th>
+                    <th scope="col">Ativo</th>
+                    <th scope="col">Atualização</th>
+                    <th scope="col">Criação</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>       
+            <tbody>
+                {% for profissional in profissionais %}
+                <tr>
+                    <td>
+                        <a href="{% url 'core_profissional_update' profissional.id %}">{{profissional.id}}</a>
+                    </td>
+                    <td>{{profissional.nome}}</td>
+                    <td>{{profissional.telefone}}</td>
+                    <td>{{profissional.email}}</td>
+                    <td>{{profissional.tipoDeProfissional}}</td>
+                    <td>{{profissional.situacao}}</td>
+                    <td>{{profissional.updatedAt}}</td>
+                    <td>{{profissional.createdAt}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- 
         <ul class="list-group">
             {% for profissional in profissionais %}
                 <li class="list-group-item">
@@ -23,6 +56,7 @@
                 </li>
             {% endfor %}
         </ul>
+        -->
     </div>
 </div>
 {% endblock %}

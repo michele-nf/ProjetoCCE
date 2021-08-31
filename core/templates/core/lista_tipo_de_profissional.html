@@ -15,13 +15,31 @@
     </div>
     <div class="col-sm-6">
         <h2>Lista Tipos de Profissionais</h2>
-        <ul class="list-group">
-            {% for tipoDeProfissional in tipoDeProfissionais %}
-                <li class="list-group-item">
-                    <a href="{% url 'core_tipo_de_profissional_update' tipoDeProfissional.id %}">{{ tipoDeProfissional.descricao }}</a>
-                </li>
-            {% endfor %}
-        </ul>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>                   
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Ativo</th>
+                    <th scope="col">Atualização</th>
+                    <th scope="col">Criação</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>       
+            <tbody>
+                {% for tipoDeProfissional in tipoDeProfissionais %}
+                <tr>
+                    <td>
+                        <a href="{% url 'core_tipo_de_profissional_update' tipoDeProfissional.id %}">{{tipoDeProfissional.id}}</a>
+                    </td>
+                    <td>{{tipoDeProfissional.descricao}}</td>
+                    <td>{{tipoDeProfissional.situacao}}</td>
+                    <td>{{tipoDeProfissional.updatedAt}}</td>
+                    <td>{{tipoDeProfissional.createdAt}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
 {% endblock %}
