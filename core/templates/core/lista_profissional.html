@@ -2,14 +2,9 @@
 {% load bootstrap %}
 
 {% block main %}
-
-<div class="row">
-    <div class="col-12">
-        <h2>Lista Profissionais</h2>
-    </div>
-</div>
 <div class="row">
     <div class="col-sm-6">
+        <h2>Cadastro</h2>
         <form action="{% url 'core_profissional_novo' %}" method="POST">
             {% csrf_token %}
     
@@ -19,9 +14,10 @@
         </form>
     </div>
     <div class="col-sm-6">
-        <ul>
+        <h2>Lista Profissionais</h2>
+        <ul class="list-group">
             {% for profissional in profissionais %}
-                <li>
+                <li class="list-group-item">
                     <a href="{% url 'core_profissional_update' profissional.id %}">
                         {{ profissional.nome }}</a>
                 </li>

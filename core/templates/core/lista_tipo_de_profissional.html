@@ -3,12 +3,8 @@
 
 {% block main %}
 <div class="row">
-    <div class="col-12">
-        <h2>Lista Tipos de Profissionais</h2>
-    </div>
-</div>
-<div class="row">
     <div class="col-sm-6">
+        <h2>Cadastro</h2>
         <form action="{% url 'core_tipo_de_profissional_novo' %}" method="POST">
             {% csrf_token %}
         
@@ -18,9 +14,10 @@
         </form>
     </div>
     <div class="col-sm-6">
-        <ul>
+        <h2>Lista Tipos de Profissionais</h2>
+        <ul class="list-group">
             {% for tipoDeProfissional in tipoDeProfissionais %}
-                <li>
+                <li class="list-group-item">
                     <a href="{% url 'core_tipo_de_profissional_update' tipoDeProfissional.id %}">{{ tipoDeProfissional.descricao }}</a>
                 </li>
             {% endfor %}
