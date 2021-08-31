@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    #Menu
     #core/
     path('core/', include('core.urls')),
     #admin/
